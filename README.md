@@ -5,7 +5,7 @@
 
     ```bash
     git clone git@github.com:Rajindra/TestOpenCartPage.git
-    cd MavenSeleniumProject
+    cd TestOpenCartPage
     ```
 
 2. **Install dependencies:**
