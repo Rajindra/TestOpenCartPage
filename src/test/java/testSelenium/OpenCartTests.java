@@ -132,13 +132,13 @@ public class OpenCartTests {
 
 	@Test
 	public void testLogoutAccount() {
-		final String firstName2 = "Johxx";
-		final String lastName2 = "Doe";
-		final String registerEmail2 = "john.xxx" + System.currentTimeMillis() + "@example.com"; // Unique email
+		final String firstName = "Johxx";
+		final String lastName = "Doe";
+		final String registerEmail = "john.xxx" + System.currentTimeMillis() + "@example.com"; // Unique email
 		final String registerPassword2 = "password123";
-		openCartPage.registerAccount(firstName2, lastName2, registerEmail2, registerPassword2);
-		final boolean registerResult2 = driver.getTitle().contains("Your Account Has Been Created");
-		assertTrue(registerResult2, "Register Account Test Failed");
+		openCartPage.registerAccount(firstName, lastName, registerEmail, registerPassword2);
+		final boolean registerResult = driver.getTitle().contains("Your Account Has Been Created");
+		assertTrue(registerResult, "Register Account Test Failed");
 		openCartPage.logoutAccount();
 		final boolean logoutResult = driver.getTitle().contains("Account Logout");
 		assertTrue(logoutResult, "Logout Account Test Failed");
@@ -146,11 +146,23 @@ public class OpenCartTests {
 
 	@Test
 	public void testLogin() {
-		final String username = "t.rajindra@gmail.comx";
-		final String password = "1234";
-		openCartPage.login(username, password);
+		
+		final String firstName = "Johxx";
+		final String lastName = "Doe";
+		final String registerEmail = "john.xxx" + System.currentTimeMillis() + "@example.com"; // Unique email
+		final String registerPassword = "password123";
+		openCartPage.registerAccount(firstName, lastName, registerEmail, registerPassword);
+		final boolean registerResult = driver.getTitle().contains("Your Account Has Been Created");
+		assertTrue(registerResult, "Register Account Test Failed");
+		openCartPage.logoutAccount();
+		final boolean logoutResult = driver.getTitle().contains("Account Logout");
+		assertTrue(logoutResult, "Logout Account Test Failed");
+		
+		
+		//Login with newly created user
+		openCartPage.login(registerEmail, registerPassword);
 		final boolean loginResultPassed = driver.getTitle().contains("My Account");
-		assertTrue(loginResultPassed, "Passed Login Test Failed");
+		assertTrue(loginResultPassed, "Successful Login Test Failed");
 		openCartPage.logoutAccount();
 	}
 
