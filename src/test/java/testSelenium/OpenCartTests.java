@@ -146,7 +146,7 @@ public class OpenCartTests {
 
 	@Test
 	public void testLogin() {
-		
+
 		final String firstName = "Johxx";
 		final String lastName = "Doe";
 		final String registerEmail = "john.xxx" + System.currentTimeMillis() + "@example.com"; // Unique email
@@ -157,9 +157,8 @@ public class OpenCartTests {
 		openCartPage.logoutAccount();
 		final boolean logoutResult = driver.getTitle().contains("Account Logout");
 		assertTrue(logoutResult, "Logout Account Test Failed");
-		
-		
-		//Login with newly created user
+
+		// Login with newly created user
 		openCartPage.login(registerEmail, registerPassword);
 		final boolean loginResultPassed = driver.getTitle().contains("My Account");
 		assertTrue(loginResultPassed, "Successful Login Test Failed");
