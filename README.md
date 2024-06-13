@@ -27,9 +27,6 @@ Before running the tests, ensure you have the following installed:
 
     mvn clean install
 
-3. **Set up WebDriver:**
-
-    This project uses WebDriverManager to handle WebDriver binaries automatically, so there's no need to manually download and set the path for ChromeDriver.
 
 ## Running Tests
 
